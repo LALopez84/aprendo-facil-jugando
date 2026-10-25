@@ -1,10 +1,10 @@
 # 🎮 Aprendo Fácil Jugando 🎮
 
-La aplicación web educativa diseñada para niños de **preprimaria y primaria**.  
+Aplicación web educativa diseñada para niños de **preprimaria y primaria**.  
 Los estudiantes aprenden mediante juegos interactivos y los docentes pueden revisar su progreso en un tablero de control.
 
 **Proyecto final del curso Desarrollo Web** · Universidad Mariano Gálvez de Guatemala · 2026  
-**Autor:** [Luis Alberto López Hernández Carné 5990-18-1186]
+**Autor:** Luis Alberto López Hernández · **Carné:** 5990-18-1186
 
 ---
 
@@ -20,14 +20,14 @@ El frontend y el backend se comunican mediante **API REST (HTTP GET/POST)** con 
 
 ---
 
-## 🔗 Enlaces publicados a utilizar
+## 🔗 Enlaces publicados
 
 - Aplicación: [COMPLETAR: URL del frontend]  
 - API: [COMPLETAR: URL del backend]  
 
 ---
 
-## 📋 Requisitos para la aplicación
+## 📋 Requisitos
 
 - **Node.js 18 o superior** (`node -v`)  
 - **MySQL 8.0 o superior** (Workbench opcional)  
@@ -38,14 +38,12 @@ El frontend y el backend se comunican mediante **API REST (HTTP GET/POST)** con 
 
 ### 1. Base de datos
 
-1. Abre MySQL Workbench y conéctate a tu servidor local.  
-2. Ejecuta el archivo `database.sql` completo (icono ⚡).  
+1. Abre MySQL Workbench y conéctate a tu servidor local.
+2. Ejecuta el archivo `database.sql` completo (icono del rayo ⚡), o copia el script que aparece abajo.
 
--- ============================================================
--- Aprendo Fácil Jugando - Script de base de datos (MySQL 8.0+)
--- Ejecutar una sola vez en MySQL Workbench o en la consola mysql
--- ============================================================
+Script de la base de datos:
 
+```sql
 CREATE DATABASE IF NOT EXISTS aprendo_facil CHARACTER SET utf8mb4;
 USE aprendo_facil;
 
@@ -85,25 +83,16 @@ INSERT INTO actividades (nombre, nivel, tema) VALUES
 ('Tablas de Multiplicar','primaria','matematicas'),
 ('Suma de Quebrados','primaria','matematicas'),
 ('Multiplicación con Decimales','primaria','matematicas');
+```
 
-3. Verifica que exista la base `aprendo_facil` con las tablas `estudiantes`, `actividades` y `progreso`. 
+3. Verifica que exista la base `aprendo_facil` con las tablas `estudiantes`, `actividades` y `progreso`. Esta consulta debe devolver **9** actividades:
 
--- ============================================================
--- Verificación rápida en el Workbench
--- ============================================================
-
-USE aprendo_facil;
-
-SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE TABLE progreso;
-TRUNCATE TABLE estudiantes;
-SET FOREIGN_KEY_CHECKS = 1;
-
-SELECT 'estudiantes' AS tabla, COUNT(*) AS filas FROM estudiantes
-UNION ALL SELECT 'progreso', COUNT(*) FROM progreso
-UNION ALL SELECT 'actividades', COUNT(*) FROM actividades;
+```sql
+SELECT COUNT(*) AS actividades FROM aprendo_facil.actividades;
+```
 
 ### 2. Backend
+
 ```powershell
 cd backend
 npm install
@@ -112,23 +101,39 @@ copy .env.example .env
 
 Abre el archivo `.env` y escribe tu contraseña de MySQL en `DB_PASSWORD` (deja `DB_SSL=false` en local). Luego inicia el servidor:
 
----powershell escribe:
+```powershell
 node server.js
+```
 
 Debe mostrar: `API lista en http://localhost:10001`. Prueba en el navegador: `http://localhost:10001/api/actividades`.
 
 ### 3. Frontend (en otra terminal)
 
----powershell escribe
+```powershell
 cd frontend
 npm install
 copy .env.example .env
 npm run dev
-
+```
 
 Abre **http://localhost:5173** en el navegador.
 
 > Si cambias el archivo `.env`, detén el servidor con Ctrl + C y vuelve a iniciarlo.
+
+### 4. Opcional: limpiar los datos de prueba
+
+Este script **borra todos los estudiantes y partidas** guardados. No modifica las actividades. Úsalo solo si quieres empezar con la base vacía:
+
+```sql
+USE aprendo_facil;
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE progreso;
+TRUNCATE TABLE estudiantes;
+SET FOREIGN_KEY_CHECKS = 1;
+```
+
+---
 
 ## Cómo usar la aplicación
 
@@ -154,25 +159,26 @@ Al abrir la aplicación aparecen dos botones:
 
 ## Estructura
 
+```
 ProyectoFinal/
-|--- README.md
-|--- database.sql
-|--- .gitignore
-|--- backend/
-|   |--- server.js
-│   |--- config/db.js
-│   |--- controllers/   (estudiantes, actividades, progreso)
-│   |--- routes/index.js
-│   |--- .env.example
-|--- frontend/
-    |--- index.html
-    |--- .env.example
-    |--- src/
-        |--- App.jsx · App.css · api.js
-        |--- components/  (Inicio, Registro, Menu, Juegos, Memoria, Tablero)
-        |--- data/preguntas.js
-        |--- img/
-
+├── README.md
+├── database.sql
+├── .gitignore
+├── backend/
+│   ├── server.js
+│   ├── config/db.js
+│   ├── controllers/   (estudiantes, actividades, progreso)
+│   ├── routes/index.js
+│   └── .env.example
+└── frontend/
+    ├── index.html
+    ├── .env.example
+    └── src/
+        ├── App.jsx · App.css · api.js
+        ├── components/  (Inicio, Registro, Menu, Juegos, Memoria, Tablero)
+        ├── data/preguntas.js
+        └── img/
+```
 
 ## 📝 Cumplimiento de requerimientos
 
@@ -198,16 +204,16 @@ ProyectoFinal/
 
 Las imágenes del menú, el fondo y los emojis provienen de páginas de internet y se usan con fines académicos.
 
-https://www.flaticon.com/free-icons/emoji
-https://heroicons.com/?utm_source=copilot.com
-https://github.com/googlefonts/noto-emoji
-https://emojipedia.org/most-popular
-https://es.pinterest.com/ideas/adentro-afuera/914462519444/
-https://ar.pinterest.com/eugiin/arriba-abajo/
-https://www.pinterest.com/jenniferquesadaestrada/concepto-cerca-lejos/
-https://www.facebook.com/photo?fbid=122198710748537636&set=pcb.122198710886537636
-https://es.pngtree.com/free-backgrounds-photos/elemento-del-paisaje
-https://www.magnific.com/es/vectores/coleccion-comida
-https://math-center.org/es-AR/resources/6th/multiplying-and-dividing-decimals/
-https://impara.es/producto/aprender-a-multiplicar/
-https://soymatematicas.com/sumar-fracciones/
+- https://www.flaticon.com/free-icons/emoji
+- https://heroicons.com
+- https://github.com/googlefonts/noto-emoji
+- https://emojipedia.org/most-popular
+- https://es.pinterest.com/ideas/adentro-afuera/914462519444/
+- https://ar.pinterest.com/eugiin/arriba-abajo/
+- https://www.pinterest.com/jenniferquesadaestrada/concepto-cerca-lejos/
+- https://www.facebook.com/photo?fbid=122198710748537636&set=pcb.122198710886537636
+- https://es.pngtree.com/free-backgrounds-photos/elemento-del-paisaje
+- https://www.magnific.com/es/vectores/coleccion-comida
+- https://math-center.org/es-AR/resources/6th/multiplying-and-dividing-decimals/
+- https://impara.es/producto/aprender-a-multiplicar/
+- https://soymatematicas.com/sumar-fracciones/
