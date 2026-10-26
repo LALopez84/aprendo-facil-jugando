@@ -21,7 +21,7 @@ export default function Registro({ onListo, onVolver }) {
             const est = await crearEstudiante({ nombre: nombreLimpio, edad: edadNum});
             onListo(est);
         } catch {
-            serError('No se obtuvo conexión. Favor de intentar nuevamente');
+            setError('No se obtuvo conexión. Favor de intentar nuevamente');
         }
     };
 
