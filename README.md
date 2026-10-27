@@ -22,8 +22,8 @@ El frontend y el backend se comunican mediante **API REST (HTTP GET/POST)** con 
 
 ## 🔗 Enlaces publicados
 
-- Aplicación: [COMPLETAR: URL del frontend]  
-- API: [COMPLETAR: URL del backend]  
+- Aplicación: https://aprendo-facil-jugando.onrender.com
+- API: https://aprendo-facil-api.onrender.com/api/actividades
 
 ---
 
