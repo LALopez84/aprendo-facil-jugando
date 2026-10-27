@@ -61,7 +61,7 @@ export default function Tablero({ onSalir }) {
                     </thead>
                     <tbody>
                         {filas.length === 0 ? (
-                            <tr><td colSpan="6">Todavía no hay partidad gurdadas.</td></tr>
+                            <tr><td colSpan="6">Todavía no hay partidas gurdadas.</td></tr>
                         ) : (
                             filas.map((f) => (
                                 <tr key={f.id}>
