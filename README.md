@@ -157,6 +157,15 @@ Al abrir la aplicación aparecen dos botones:
 | POST | `/api/progreso` | Guarda el resultado de una partida |
 | GET | `/api/progreso?estudiante_id=` | Historial de progreso (filtro opcional por estudiante) |
 
+## 📚 Documentación
+
+Los documentos del proyecto están en la carpeta `docs/`:
+
+| Documento | Archivo | Contenido |
+|-----------|---------|-----------|
+| Informe del proyecto | [PDF](docs/Informe_Proyecto_Aprendo_Facil.pdf) | Descripción del sistema, evidencia con capturas de los requerimientos funcionales y no funcionales, base de datos, publicación en la nube y conclusiones |
+| Documento técnico | [PDF](docs/Documento_Tecnico_Aprendo_Facil.pdf) | Ubicación de cada archivo, explicación del código, aleatorización de los juegos, autenticación, seguridad y plataformas utilizadas |
+
 ## Estructura
 
 ```
@@ -164,6 +173,9 @@ ProyectoFinal/
 ├── README.md
 ├── database.sql
 ├── .gitignore
+├── docs/
+│   ├── Informe_Proyecto_Aprendo_Facil (.pdf y .docx)
+│   └── Documento_Tecnico_Aprendo_Facil (.pdf y .docx)
 ├── backend/
 │   ├── server.js
 │   ├── config/db.js
