@@ -23,7 +23,7 @@ export default function Tablero({ onSalir }) {
     const total = filas.length;
     const promedio = total ? Math.round(filas.reduce((s, f) => s + f.puntaje, 0) / total) : 0;
     const mejor = total ? Math.max(...filas.map((f) => f.puntaje)) : 0;
-    const fecha = (f) => new Date(f).toLocaleString('es-GT', { dataStyle: 'short', timeStyle: 'short' });
+    const fecha = (f) => new Date(f).toLocaleString('es-GT', { dateStyle: 'short', timeStyle: 'short' });
 
     return (
         <div className="tarjeta ancha">
@@ -32,7 +32,7 @@ export default function Tablero({ onSalir }) {
 
             <select className="campo" value={filtro} onChange={(e) => setFiltro(e.target.value)}>
                 <option value="">Todos los estudiantes</option>
-                {estudiante.map((e) => (
+                {estudiante.map((e, i) => (
                     <option key={e.id} value={e.id}>
                         {i + 1}. {e.nombre} · {e.edad} años
                     </option>
@@ -61,22 +61,23 @@ export default function Tablero({ onSalir }) {
                     </thead>
                     <tbody>
                         {filas.length === 0 ? (
-                            <tr><td colSpan="6">Todavía no hay partidas gurdadas.</td></tr>
+                            <tr><td colSpan="6">Todavía no hay partidas guardadas.</td></tr>
                         ) : (
                             filas.map((f) => (
                                 <tr key={f.id}>
                                     <td>{f.estudiante}</td>
                                     <td>{f.actividad}</td>
-                                    <td>⭐{f.puntaje}</td>
+                                    <td>⭐ {f.puntaje}</td>
                                     <td>{f.aciertos}</td>
                                     <td>{f.intentos}</td>
-                                    <td>{fecha (f.fecha)}</td>
+                                    <td>{fecha(f.fecha)}</td>
                                 </tr>
                             ))
                         )}
                     </tbody>
                 </table>
             </div>
+
             <button className="btn gris" onClick={onSalir}>⬅ Volver</button>
         </div>
     );
