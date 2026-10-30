@@ -34,7 +34,7 @@ export default function Tablero({ onSalir }) {
                 <option value="">Todos los estudiantes</option>
                 {estudiante.map((e) => (
                     <option key={e.id} value={e.id}>
-                        {e.nombre} · {e.edad} años · #{e.id}
+                        {i + 1}. {e.nombre} · {e.edad} años
                     </option>
                 ))}
             </select>
