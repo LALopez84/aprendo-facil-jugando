@@ -14,7 +14,7 @@ const post = (ruta, datos) =>
     });
 
     export const crearEstudiante = (datos) => post('/estudiantes', datos);
-    export const getEstudiantes = () => pedir('/estudiantes');
+    export const getEstudiantes = (soloConProgreso = false) => pedir(`/estudiantes${soloConProgreso ? '?conProgreso=true' : ''}`);
     export const getActividades = (nivel) => pedir(`/actividades?nivel=${nivel}`);
     export const guardarProgreso = (datos) => post('/progreso', datos);
     export const getProgreso = (estudianteId = '') => pedir(`/progreso${estudianteId ? `?estudiante_id=${estudianteId}` : ''}`);

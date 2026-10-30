@@ -8,7 +8,7 @@ export default function Tablero({ onSalir }) {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        getEstudiantes()
+        getEstudiantes(true)
         .then(setEstudiante)
         .catch(() => setError('No se pudo cargar la lista de estudiantes'));
     }, []);
