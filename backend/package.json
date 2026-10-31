@@ -1,14 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aprendo Fácil Jugando: juegos educativos para preprimaria y primaria",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Luis Alberto López Hernández Carne 5990-18-1186",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
