@@ -24,6 +24,7 @@ El frontend y el backend se comunican mediante **API REST (HTTP GET/POST)** con 
 
 - Aplicación: https://aprendo-facil-jugando.onrender.com
 - API: https://aprendo-facil-api.onrender.com/api/actividades
+- Video de presentación: [Ver en YouTube](https://www.youtube.com/watch?v=4NS-1crrxB8)
 
 ---
 
